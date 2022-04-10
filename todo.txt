@@ -1,12 +1,17 @@
 what needs to be done in order to make a rhythm game
 
 
-basics
+in progress:
+- basic ui 
+
+planned:
 - spawning tiles (notes) that can be clicked to remove them
 - if tile is on receptor tile then play sound + add to score
 - missing too many tiles will end the game
 
-technical requirements
 - collision detection between note and receptor
 - something that reads a beatmap to create notes in the right order
 - holy grail: script that creates a beatmap based on any song
+
+
+completed:

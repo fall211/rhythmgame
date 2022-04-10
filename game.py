@@ -1,4 +1,5 @@
 import pygame
+from level import Level
 
 WIDTH = 720
 HEIGHT = 720
@@ -11,6 +12,7 @@ class Game:
         pygame.display.set_caption('RhythmGame') #set window title
         self.clock = pygame.time.Clock()
 
+        self.level = Level(1)
 
     def run(self):
         while True: #everything happens in this loop
@@ -22,6 +24,7 @@ class Game:
                     pygame.quit()
                     exit()
 
+            self.level.run()
 
             pygame.display.update() #update the screen when While True is
             self.clock.tick(FPS) #how many times per second the screen gets updated

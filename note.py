@@ -7,6 +7,8 @@ class Note(pygame.sprite.Sprite):
 		self.pos = pos
 		self.image = pygame.image.load('images/note.png').convert()
 		self.rect = self.image.get_rect(topleft=self.pos)
+		self.duration = 300
 
 	def update(self):
-		self.rect.y += 1
+		self.rect.y += 5
+		self.duration -= 1

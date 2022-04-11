@@ -9,6 +9,7 @@ class Note(pygame.sprite.Sprite):
 		self.posx = 192 + 87 * pos[0]
 		self.posy = pos[1]
 		self.image = pygame.image.load('images/note.png').convert()
+<<<<<<< HEAD
 		self.rect = self.image.get_rect(topleft=(self.posx,self.posy))
 		self.timer = 0
 
@@ -19,6 +20,10 @@ class Note(pygame.sprite.Sprite):
 		elif keys[pygame.K_e] and self.column == 2: self.kill()
 		elif keys[pygame.K_r] and self.column == 3: self.kill()
 
+=======
+		self.rect = self.image.get_rect(topleft=self.pos)
+		self.duration = 60 #TODO see if we actually need this lolol
+>>>>>>> 7f097a1e72b97f9b993289d6b95114bb0735aca2
 
 	def update(self):
 		self.rect.y += 5

@@ -19,7 +19,6 @@ class Note(pygame.sprite.Sprite):
 		elif keys[pygame.K_e] and self.column == 2: self.kill()
 		elif keys[pygame.K_r] and self.column == 3: self.kill()
 
-		self.rect = self.image.get_rect(topleft=self.pos)
 		self.duration = 60 #TODO see if we actually need this lolol
 
 	def update(self):

@@ -26,7 +26,6 @@ class Level:
 
 
         receptorposlist = [(192,541),(279,541),(366,541),(453,541)] #just a list with positions
-        #self.noteArr = [(100, (0, 341)), (200, (0, 341))]
         self.noteArr = parseLevel(0)
         self.inNoteArr = [[],[],[],[]];
         self.notePosition = 0;

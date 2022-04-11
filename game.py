@@ -1,10 +1,7 @@
 import pygame
 from sys import exit
 from level import Level
-
-WIDTH = 720
-HEIGHT = 720
-FPS = 30
+from settings import *
 
 class Game:
     def __init__(self):

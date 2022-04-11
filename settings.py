@@ -1,0 +1,3 @@
+FPS = 30
+WIDTH = 720
+HEIGHT = 720

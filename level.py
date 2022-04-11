@@ -12,7 +12,7 @@ class Level:
         self.background = pygame.image.load("images/background.png")
 
         receptorposlist = [(192,541),(279,541),(366,541),(453,541)] #just a list with positions
-        notearr = [(0, 341), (1, 341), (2, 341), (3, 341)]
+        notearr = [(0, 100), (1, 200), (2, 300), (3, 400)]
 
         for pos in receptorposlist:
             Receptor(pos,self.receptorgroup) #creates instances of the receptor class and adds them to its sprite group

@@ -5,6 +5,7 @@ class Note(pygame.sprite.Sprite):
 	def __init__(self,pos,group):
 		super().__init__(group)
 
+		self.isLast = False
 		self.column = pos[0]
 		self.posx = 192 + 87 * pos[0]
 		self.posy = pos[1]
@@ -14,6 +15,8 @@ class Note(pygame.sprite.Sprite):
 
 	def killonkeypress(self):
 		keys = pygame.key.get_pressed()
+		if not self.isLast:
+			return
 		if keys[pygame.K_q] and self.column == 0 and self.rect.centery < +75/2 + 616 and self.rect.centery > 541-75/2: self.kill()
 		elif keys[pygame.K_w] and self.column == 1 and self.rect.centery < +75/2 + 616 and self.rect.centery > 541-75/2: self.kill()
 		elif keys[pygame.K_e] and self.column == 2 and self.rect.centery < +75/2 + 616 and self.rect.centery > 541-75/2: self.kill()

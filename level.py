@@ -10,13 +10,15 @@ class Level:
 
         self.stage_num = lvl_num
         self.surface = pygame.display.get_surface() #gets the surface so that we can draw on it
+        self.background = pygame.image.load("images/background.png")
+
         self.receptorgroup = pygame.sprite.Group() #sprite group for the receptors
         self.notegroup = pygame.sprite.Group() #sprite group for the notes
 
-        self.background = pygame.image.load("images/background.png")
 
         receptorposlist = [(192,541),(279,541),(366,541),(453,541)] #just a list with positions
-        self.notearr = [(100, (0, 341)), (200, (0, 341))]
+        self.noteArr = [(100, (0, 341)), (200, (0, 341))]
+        self.inNoteArr = [[],[],[],[]];
         self.notePosition = 0;
 
         for pos in receptorposlist:
@@ -30,12 +32,21 @@ class Level:
         # while loop is there to ensure doubles are accounted for (instead of just popping the first)
         # "15" here is hardcoded due to the framerate. TODO change this for variable framerate/60 FPS
 
-        while(self.notePosition < len(self.notearr) and self.notearr[self.notePosition][0] - self.te < 15):
-            Note(self.notearr[self.notePosition][1], self.notegroup)
+        while(self.notePosition < len(self.noteArr) and self.noteArr[self.notePosition][0] - self.te < 15):
+            (self.inNoteArr[self.noteArr[self.notePosition][1][0]]).append(Note(self.noteArr[self.notePosition][1], self.notegroup))
+            print(len(self.inNoteArr[self.noteArr[self.notePosition][1][0]]))
             self.notePosition += 1
         
-        print(self.te)
+        for arr in self.inNoteArr:
+            if len(arr) == 0:
+                continue
+            while len(arr) != 0 and not arr[0].alive():
+                arr.pop(0)
+            if len(arr) != 0:
+                arr[0].isLast = True
 
+                
+        
         self.surface.blit(self.background, (0, 0))
         self.receptorgroup.draw(self.surface)
         self.notegroup.draw(self.surface)

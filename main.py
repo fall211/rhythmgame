@@ -1,4 +1,4 @@
-import game
+from game import Game
 from sys import exit
 
 
@@ -6,4 +6,4 @@ from sys import exit
 
 
 if __name__ == '__main__': #shows that this is the only .py file that should be ran in console
-	game.Game().run()
+	Game().run()

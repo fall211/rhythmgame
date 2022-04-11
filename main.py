@@ -1,5 +1,4 @@
 import game
-from sys import exit
 
 
 #https://www.pygame.org/docs/   <---- quick access to documentation

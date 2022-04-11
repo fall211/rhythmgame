@@ -1,4 +1,5 @@
 import pygame
+from sys import exit
 from level import Level
 
 WIDTH = 720

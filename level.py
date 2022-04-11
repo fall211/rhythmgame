@@ -2,6 +2,15 @@ import pygame
 from receptor import Receptor
 from note import Note
 
+def parseLevel(levelNumber):
+    fp = open('./levels/level_' + str(levelNumber) + '.txt', 'r')
+    retList = []
+    for line in fp:
+        compLine = line.split(",")
+        retList.append((int(compLine[0]), (int(compLine[1]), int(compLine[2]))))
+    
+    return retList
+
 class Level:
     def __init__(self, lvl_num):
         self.stage_clock = pygame.time.Clock()
@@ -17,7 +26,8 @@ class Level:
 
 
         receptorposlist = [(192,541),(279,541),(366,541),(453,541)] #just a list with positions
-        self.noteArr = [(100, (0, 341)), (200, (0, 341))]
+        #self.noteArr = [(100, (0, 341)), (200, (0, 341))]
+        self.noteArr = parseLevel(0)
         self.inNoteArr = [[],[],[],[]];
         self.notePosition = 0;
 

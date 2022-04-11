@@ -56,7 +56,6 @@ class Level:
 
         while(self.notePosition < len(self.noteArr) and self.noteArr[self.notePosition][0] - self.te < 15):
             (self.inNoteArr[self.noteArr[self.notePosition][1][0]]).append(Note(self.noteArr[self.notePosition][1], self.notegroup,7))
-            print(len(self.inNoteArr[self.noteArr[self.notePosition][1][0]]))
             self.notePosition += 1
         
         for arr in self.inNoteArr:

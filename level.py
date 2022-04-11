@@ -23,18 +23,22 @@ class Level:
             Receptor(pos,self.receptorgroup) #creates instances of the receptor class and adds them to its sprite group
 
     def run(self): #this is the thing that gets ran every time the screen updates, so this will be used to draw all the shit
-        while(self.notePosition < len(self.notearr) and self.notearr[self.notePosition][0] - self.te < 0.03):
+
+        # adds the delta time, and then checks if the upcoming notes are within the interval
+        self.te += self.stage_clock.tick() 
+
+        # while loop is there to ensure doubles are accounted for (instead of just popping the first)
+        # "15" here is hardcoded due to the framerate. TODO change this for variable framerate/60 FPS
+
+        while(self.notePosition < len(self.notearr) and self.notearr[self.notePosition][0] - self.te < 15):
             Note(self.notearr[self.notePosition][1], self.notegroup)
             self.notePosition += 1
         
         print(self.te)
 
-        self.stage_clock.tick()
         self.surface.blit(self.background, (0, 0))
         self.receptorgroup.draw(self.surface)
         self.notegroup.draw(self.surface)
         self.notegroup.update()
 
-        self.te += self.stage_clock.tick()
 
-#TODO make a basic level class

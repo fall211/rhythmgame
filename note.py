@@ -14,19 +14,9 @@ class Note(pygame.sprite.Sprite):
 		self.timer = 0
 		self.speed = speed
 
-	def killonkeypress(self):
-		keys = pygame.key.get_pressed()
-		if not self.isLast:
-			return
-		if keys[pygame.K_q] and self.column == 0: self.kill() # and self.rect.centery < +75/2 + 616 and self.rect.centery > 541-75/2
-		elif keys[pygame.K_w] and self.column == 1: self.kill()
-		elif keys[pygame.K_e] and self.column == 2: self.kill()
-		elif keys[pygame.K_r] and self.column == 3: self.kill()
-		else: pass #fix later to delete only bottom note
 
 	def update(self):
 		self.rect.y += 5
 		self.timer += 1/FPS
 		if self.rect.bottom > 720:
 			self.kill()
-		self.killonkeypress()

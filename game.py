@@ -23,9 +23,12 @@ class Game:
                 if event.type == pygame.QUIT: #closing the window exits the program
                     pygame.quit() #close pygame
                     exit() #exit the program
-                if pygame.key.get_pressed()[pygame.K_BACKSPACE]: #pressing backspace exits the program
-                    pygame.quit()
-                    exit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_q: self.level.notedeath('q')
+                    elif event.key == pygame.K_w: self.level.notedeath('w')
+                    elif event.key == pygame.K_e: self.level.notedeath('e')
+                    elif event.key == pygame.K_r: self.level.notedeath('r')
+                    else: pass
 
             self.level.run()
 

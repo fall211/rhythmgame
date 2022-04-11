@@ -33,6 +33,19 @@ class Level:
         for pos in receptorposlist:
             Receptor(pos,self.receptorgroup) #creates instances of the receptor class and adds them to its sprite group
 
+
+
+    def notedeath(self,keypress):
+        self.keypress = keypress
+        for sprite in self.notegroup:
+            if not sprite.isLast:
+                return
+            if self.keypress == 'q' and sprite.rect.x == 192: sprite.kill()
+            elif self.keypress == 'w' and sprite.rect.x == 279: sprite.kill()
+            elif self.keypress == 'e' and sprite.rect.x == 366: sprite.kill()
+            elif self.keypress == 'r' and sprite.rect.x == 453: sprite.kill()
+            else: pass #fix later to delete only bottom note
+
     def run(self): #this is the thing that gets ran every time the screen updates, so this will be used to draw all the shit
 
         # adds the delta time, and then checks if the upcoming notes are within the interval

@@ -44,7 +44,7 @@ class Level:
             elif self.keypress == 'w' and sprite.rect.x == 279: sprite.kill()
             elif self.keypress == 'e' and sprite.rect.x == 366: sprite.kill()
             elif self.keypress == 'r' and sprite.rect.x == 453: sprite.kill()
-            else: pass #fix later to delete only bottom note
+            else: pass
 
     def run(self): #this is the thing that gets ran every time the screen updates, so this will be used to draw all the shit
 
@@ -55,7 +55,7 @@ class Level:
         # "15" here is hardcoded due to the framerate. TODO change this for variable framerate/60 FPS
 
         while(self.notePosition < len(self.noteArr) and self.noteArr[self.notePosition][0] - self.te < 15):
-            (self.inNoteArr[self.noteArr[self.notePosition][1][0]]).append(Note(self.noteArr[self.notePosition][1], self.notegroup,0.1))
+            (self.inNoteArr[self.noteArr[self.notePosition][1][0]]).append(Note(self.noteArr[self.notePosition][1], self.notegroup,7))
             print(len(self.inNoteArr[self.noteArr[self.notePosition][1][0]]))
             self.notePosition += 1
         

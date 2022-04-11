@@ -11,12 +11,10 @@ class Note(pygame.sprite.Sprite):
 		self.posy = pos[1]
 		self.image = pygame.image.load('images/note.png').convert()
 		self.rect = self.image.get_rect(topleft=(self.posx,self.posy))
-		self.timer = 0
 		self.speed = speed
 
 
 	def update(self):
-		self.rect.y += 5
-		self.timer += 1/FPS
+		self.rect.y += 1 * self.speed
 		if self.rect.bottom > 720:
 			self.kill()

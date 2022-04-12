@@ -11,7 +11,7 @@ class Game:
 
         pygame.mixer.init()
         pygame.mixer.music.load('./audio/drip.wav')
-        pygame.mixer.music.play(1)
+        # pygame.mixer.music.play(1)
 
         self.clock = pygame.time.Clock()
 

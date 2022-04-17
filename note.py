@@ -8,7 +8,7 @@ class Note(pygame.sprite.Sprite):
 		self.isLast = False
 		self.column = pos[0]
 		self.posx = 192 + 87 * pos[0]
-		self.posy = pos[1]
+		self.posy = -75
 		self.image = pygame.image.load('images/note.png').convert()
 		self.rect = self.image.get_rect(topleft=(self.posx,self.posy))
 		self.speed = speed

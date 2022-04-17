@@ -9,13 +9,16 @@ class Game:
         screen = pygame.display.set_mode((WIDTH, HEIGHT)) #set screen dimensions
         pygame.display.set_caption('RhythmGame') #set window title
 
+        # music stuff
         pygame.mixer.init()
         pygame.mixer.music.load('./audio/drip.wav')
         # pygame.mixer.music.play(1)
 
+        # clock stuff
         self.clock = pygame.time.Clock()
 
-        self.level = Level(1)
+        # level stuff
+        self.level = Level(0)
 
     def run(self):
         while True: #everything happens in this loop

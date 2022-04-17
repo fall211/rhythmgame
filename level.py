@@ -13,20 +13,23 @@ def parseLevel(levelNumber):
 
 class Level:
     def __init__(self, lvl_num):
+        # clock stuff
         self.stage_clock = pygame.time.Clock()
         self.stage_clock.tick()
         self.te = 0
 
+        #stage/background stuff
         self.stage_num = lvl_num
         self.surface = pygame.display.get_surface() #gets the surface so that we can draw on it
         self.background = pygame.image.load("images/background.png")
 
+        #group stuff
         self.receptorgroup = pygame.sprite.Group() #sprite group for the receptors
         self.notegroup = pygame.sprite.Group() #sprite group for the notes
 
 
         receptorposlist = [(192,541),(279,541),(366,541),(453,541)] #just a list with positions
-        self.noteArr = parseLevel(0)
+        self.noteArr = parseLevel(lvl_num)
         self.inNoteArr = [[],[],[],[]];
         self.notePosition = 0;
 

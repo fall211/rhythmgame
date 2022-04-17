@@ -3,7 +3,7 @@ from receptor import Receptor
 from note import Note
 
 def parseLevel(levelNumber):
-    fp = open('./levels/level_' + str(levelNumber) + '.txt', 'r')
+    fp = open(f'./levels/level_{str(levelNumber)}.txt', 'r')
     retList = []
     for line in fp:
         compLine = line.split(",")
@@ -36,7 +36,11 @@ class Level:
         for pos in receptorposlist:
             Receptor(pos,self.receptorgroup) #creates instances of the receptor class and adds them to its sprite group
 
-
+    def nr_collidecheck(self):
+        for note in self.notegroup:
+            if note.isLast and len(pygame.sprite.spritecollide(note, self.receptorgroup, False)) > 0:
+                return True
+            else: return False
 
     def notedeath(self,keypress):
         self.keypress = keypress

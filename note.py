@@ -6,11 +6,16 @@ class Note(pygame.sprite.Sprite):
 		super().__init__(group)
 
 		self.isLast = False
+
+		# positional variables
 		self.column = pos[0]
-		self.posx = 192 + 87 * pos[0]
+		self.posx = 192 + 87 * self.column
 		self.posy = -75
+
+		#image stuff
 		self.image = pygame.image.load('images/note.png').convert()
 		self.rect = self.image.get_rect(topleft=(self.posx,self.posy))
+
 		self.speed = speed
 
 
